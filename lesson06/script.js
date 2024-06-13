@@ -18,8 +18,33 @@ function bankingPrompt() {
         case 'W':
             console.log("You are making a withdraw from your account");
             withdrawAmount = prompt("Please enter an amount to withdraw");
-            balance = balance - Number(withdrawAmount);
-            console.log(balance);
+    
+            if ((balance - Number(withdrawAmount)) < 0) {
+                console.log("You are trying to take more money than your balance allows");
+                //balance =  balance + Number(withdrawAmount)
+                console.log(balance);
+            } else {
+                if ((balance - Number(withdrawAmount)) < 300) {
+                    let answer = prompt("You will have a balance of less than $300, do you want to continue? \n Yes or No?")
+                    switch (answer) {
+                        case 'Yes':
+                        case 'yes':
+                        case 'y':
+                        case 'Y':
+                            balance = balance - Number(withdrawAmount);
+                            console.log(balance);
+                            break;
+                        case 'No':
+                        case 'no':
+                        case 'n':
+                        case 'Y':
+                            console.log("No withdraw has been made");
+                            balance = balance + Number(withdrawAmount);
+                            console.log(balance);
+                            break;
+                    };
+                }
+            }
             flag = true;
             break;
         case 'd':
