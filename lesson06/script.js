@@ -21,7 +21,6 @@ function bankingPrompt() {
     
             if ((balance - Number(withdrawAmount)) < 0) {
                 console.log("You are trying to take more money than your balance allows");
-                //balance =  balance + Number(withdrawAmount)
                 console.log(balance);
             } else {
                 if ((balance - Number(withdrawAmount)) < 300) {
@@ -39,7 +38,6 @@ function bankingPrompt() {
                         case 'n':
                         case 'Y':
                             console.log("No withdraw has been made");
-                            balance = balance + Number(withdrawAmount);
                             console.log(balance);
                             break;
                     };
