@@ -26,8 +26,13 @@ function bankingPrompt() {
         case 'D':
             console.log("You are making a deptosite to your account");
             depositAmount = prompt("Please enter amount you would like to deposit?");
-            balance = balance + Number(depositAmount);
-            console.log(balance);
+            if (depositAmount <= 50000) {
+                balance = balance + Number(depositAmount);
+                console.log(balance);
+              } else {
+                console.log("Cannot deposit more than $50,000.00 \n Please start over.");
+                depositAmount = 0;
+              }
             flag = true;
             break;
         case 'b':
