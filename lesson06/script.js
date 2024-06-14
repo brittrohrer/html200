@@ -11,12 +11,12 @@ function bankingPrompt() {
         switch (intro) {
         case 'q':
         case 'Q':
-            console.log("You are quiting the application");
+            alert("You are quiting the application");
             flag = false;
             break;
         case 'w':  
         case 'W':
-            console.log("You are making a withdraw from your account");
+            alert("You are making a withdraw from your account");
             withdrawAmount = prompt("Please enter an amount to withdraw");
     
             if (Number(withdrawAmount) < balance) {
@@ -29,19 +29,17 @@ function bankingPrompt() {
                         case 'y':
                         case 'Y':
                             balance = balance - Number(withdrawAmount);
-                            console.log(balance);
                             break;
                         case 'No':
                         case 'no':
                         case 'n':
                         case 'Y':
                             alert("No withdraw has been made");
-                            console.log(balance);
                             break;
                     }
                 }
             } else {
-                console.log("You are trying to take more money than your balance allows");
+                alert("You are trying to take more money than your balance allows");
                 withdrawAmount = 0;
             }
             flag = true;
@@ -52,16 +50,15 @@ function bankingPrompt() {
             depositAmount = prompt("Please enter amount you would like to deposit?");
             if (depositAmount <= 50000) {
                 balance = balance + Number(depositAmount);
-                console.log(balance);
               } else {
-                console.log("Cannot deposit more than $50,000.00 \n Please start over.");
+                alert("You cannot deposit more than $50,000.00 \n Please start over.");
                 depositAmount = 0;
               }
             flag = true;
             break;
         case 'b':
         case 'B':
-            console.log(balance);
+            alert("Your current balance is: \n " + balance);
             flag = true;
             break;
         default:
