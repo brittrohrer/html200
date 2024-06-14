@@ -11,16 +11,16 @@ function bankingPrompt() {
         switch (intro) {
         case 'q':
         case 'Q':
-            console.log("You are quiting the application");
+            alert("You are quiting the application");
             flag = false;
             break;
         case 'w':  
         case 'W':
-            console.log("You are making a withdraw from your account");
+            alert("You are making a withdraw from your account");
             withdrawAmount = prompt("Please enter an amount to withdraw");
     
             if ((balance - Number(withdrawAmount)) < 0) {
-                console.log("You are trying to take more money than your balance allows");
+                alert("You are trying to take more money than your balance allows");
                 console.log(balance);
             } else {
                 if ((balance - Number(withdrawAmount)) < 300) {
@@ -37,37 +37,36 @@ function bankingPrompt() {
                         case 'no':
                         case 'n':
                         case 'Y':
-                            console.log("No withdraw has been made");
+                            alert("No withdraw has been made");
                             console.log(balance);
                             break;
-                    };
+                    }
                 }
             }
             flag = true;
             break;
         case 'd':
         case 'D':
-            console.log("You are making a deptosite to your account");
+            console.log("You are making a deptosit to your account");
             depositAmount = prompt("Please enter amount you would like to deposit?");
             if (depositAmount <= 50000) {
                 balance = balance + Number(depositAmount);
                 console.log(balance);
               } else {
-                console.log("Cannot deposit more than $50,000.00 \n Please start over.");
+                alert("Cannot deposit more than $50,000.00 \n Please start over.");
                 depositAmount = 0;
               }
             flag = true;
             break;
         case 'b':
         case 'B':
-            console.log("You are going to view your account balance");
-            console.log(balance);
+            alert("Your current blance is: \n $" + balance);
             flag = true;
             break;
         default:
-            console.log("You have entered an invalid option");
+            alert("You have entered an invalid option");
             flag = true;
             break;
-      };
+        }
     }
 }
