@@ -11,19 +11,17 @@ function bankingPrompt() {
         switch (intro) {
         case 'q':
         case 'Q':
-            alert("You are quiting the application");
+            console.log("You are quiting the application");
             flag = false;
             break;
         case 'w':  
         case 'W':
-            alert("You are making a withdraw from your account");
+            console.log("You are making a withdraw from your account");
             withdrawAmount = prompt("Please enter an amount to withdraw");
     
-            if ((balance - Number(withdrawAmount)) < 0) {
-                alert("You are trying to take more money than your balance allows");
-                console.log(balance);
-            } else {
-                if ((balance - Number(withdrawAmount)) < 300) {
+            if (Number(withdrawAmount) < balance) {
+                balance = balance - Number(withdrawAmount);
+                if (balance < 300) {
                     let answer = prompt("You will have a balance of less than $300, do you want to continue? \n Yes or No?")
                     switch (answer) {
                         case 'Yes':
@@ -42,6 +40,9 @@ function bankingPrompt() {
                             break;
                     }
                 }
+            } else {
+                console.log("You are trying to take more money than your balance allows");
+                withdrawAmount = 0;
             }
             flag = true;
             break;
@@ -53,18 +54,18 @@ function bankingPrompt() {
                 balance = balance + Number(depositAmount);
                 console.log(balance);
               } else {
-                alert("Cannot deposit more than $50,000.00 \n Please start over.");
+                console.log("Cannot deposit more than $50,000.00 \n Please start over.");
                 depositAmount = 0;
               }
             flag = true;
             break;
         case 'b':
         case 'B':
-            alert("Your current blance is: \n $" + balance);
+            console.log(balance);
             flag = true;
             break;
         default:
-            alert("You have entered an invalid option");
+            console.log("You have entered an invalid option");
             flag = true;
             break;
         }
