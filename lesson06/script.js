@@ -21,7 +21,7 @@ function bankingPrompt() {
     
             if ((balance - Number(withdrawAmount)) > 0) {
                 if ((balance - Number(withdrawAmount)) < 300) {
-                    let answer = prompt("You will have a balance of less than $300, do you want to continue? \n Yes or No?")
+                    let answer = prompt("You will have a balance of less than $300, do you want to continue? \n Yes or No?");
                     switch (answer) {
                         case 'Yes':
                         case 'yes':
