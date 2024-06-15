@@ -19,9 +19,8 @@ function bankingPrompt() {
             alert("You are making a withdraw from your account");
             withdrawAmount = prompt("Please enter an amount to withdraw");
     
-            if (Number(withdrawAmount) < balance) {
-                balance = balance - Number(withdrawAmount);
-                if (balance < 300) {
+            if ((balance - Number(withdrawAmount)) > 0) {
+                if ((balance - Number(withdrawAmount)) < 300) {
                     let answer = prompt("You will have a balance of less than $300, do you want to continue? \n Yes or No?")
                     switch (answer) {
                         case 'Yes':
